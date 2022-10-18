@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculadora</title>
+</head>
+<body>
+    <div class="calculator">
+        <p id="resultado"></p>
+        <div class="calculator-buttons">
+            <button id="limparDisplay">CE</button>
+            <button id="LimparCalculo" onclick="clean()">C</button>
+            <button id="backspace" onclick="back()">«</button>
+            <button id="operadorDividir" onclick="insert('/')">/</button>
+            <button id="tecla7" onclick="insert('7')">7</button>
+            <button id="tecla8" onclick="insert('8')">8</button>
+            <button id="tecla9" onclick="insert('9')">9</button>
+            <button id="operadorMultiplicar" onclick="insert('*')">*</button>
+            <button id="tecla4" onclick="insert('4')">4</button>
+            <button id="tecla5" onclick="insert('5')">5</button>
+            <button id="tecla6" onclick="insert('6')">6</button>
+            <button id="operadorSubtrair" onclick="insert('-')">-</button>
+            <button id="tecla1" onclick="insert('1')">1</button>
+            <button id="tecla2" onclick="insert('2')">2</button>
+            <button id="tecla3" onclick="insert('3')">3</button>
+            <button id="operadorAdcionar" onclick="insert('+')">+</button>
+            <button id="inverter">±</button>
+            <button id="trecla0" onclick="insert('0')">0</button>
+            <button id="decimal" onclick="insert(',')">,</button>
+            <button id="igual" onclick="calcular()">=</button>
+        </div>
+    </div>
+    <script> 
+    function insert(num){
+    var numero = document.getElementById('resultado').innerHTML;
+    document.getElementById('resultado').innerHTML = numero + num;
+
+}
+
+function clean(){
+    document.getElementById('resultado').innerHTML = "";
+}
+
+function back(){
+    var resultado = document.getElementById('resultado').innerHTML;
+    document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1);
+
+}
+
+function calcular(){
+    var resultado = document.getElementById('resultado'). innerHTML;
+    if(resultado){
+        document.getElementById('resultado').innerHTML = eval(resultado);
+    }
+    else{
+        document.getElementById('resultado').innerHTML = "Nada..."
+    }
+}
+    
+    </script>
+    
+</body>
+</html>
